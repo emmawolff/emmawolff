@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Emma Wolff</title>
+  <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="no-image">
+
+
+<header>
+     
+    <h1><a href="index.html">EMMA WOLFF</a></h1>
+    
+<nav>
+  <a href="work.html">TRAVAUX</a>
+  <a href="exhibition.html">EXPOSITION</a>
+  <a href="about.html">A PROPOS</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+</header>
+
+<main>
+   <div class="text-box">
+  <p><a href="mailto:emma.deka.wolff@gmail.com">emma.deka.wolff@gmail.com</a></p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Emma Wolff</p>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+
+  // Fade in au chargement
+  setTimeout(() => {
+    body.style.opacity = 1;
+  }, 10);
+
+  // Fade out sur clic de lien
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+
+      // Ignorer les liens mailto et ancre #
+      if (href.startsWith("#") || href.startsWith("mailto:")) return;
+
+      e.preventDefault();
+      body.style.opacity = 0; // fade out
+      setTimeout(() => {
+        window.location.href = href; // changement de page après fade
+      }, 500); // durée correspond à celle du fade
+    });
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Emma Wolff</title>
+  <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="no-image">
+
+
+<header>
+    <h1><a href="index.html">EMMA WOLFF</a></h1>
+ <nav>
+  <a href="work.html">TRAVAUX</a>
+  <a href="exhibition.html">EXPOSITION</a>
+  <a href="about.html">A PROPOS</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+</header>
+
+<main>
+  <div class="text-box">
+  <section aria-labelledby="about-title" style="text-align:center; padding: 1rem 1rem;">
+  <p style="max-width: 520px; margin: 0 auto;">
+    Emma Wolff est une artiste visuelle spécialisée dans les arts plastiques et les médias numériques.
+    Son travail explore les rapports entre l’image et le récit, en interrogeant les notions de mémoire,
+    de perception et de temporalité.
+  </p>
+  
+</section>
+
+<!-- Optionnel: section Biographie rapide centrée (si tu veux garder le format) -->
+<section aria-labelledby="bio-details" class="bio-section" style="text-align:center; padding: 1rem 1rem;">
+ 
+  <ul style="display:inline-block; text-align:left; list-style: none; padding: 0; margin: 0;">
+    <li>Formée en arts plastiques à [Nom de l’établissement], [année].</li>
+    <li>Ses œuvres ont été présentées à [lieux], [années].</li>
+    <li>Collaborations récentes avec [leurs partenaires].</li>
+  </ul>
+   </div>
+</section>
+
+
+</main>
+<footer>
+  <p>&copy; 2026 Emma Wolff</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  body.style.opacity = 0;
+  setTimeout(() => {
+    body.style.opacity = 1;
+  }, 10);
+
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.startsWith("#") || href.startsWith("mailto:")) return;
+      e.preventDefault();
+      body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500);
+    });
+  });
+});
+</script>

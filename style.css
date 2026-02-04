@@ -1,0 +1,233 @@
+/* ===== Reset et base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: 'roboto', sans-serif; 
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; /* contenu en haut */ 
+  align-items: center; /* centré horizontalement */ 
+  background-color: #fff; 
+  transition: opacity 0.5s ease-in-out; 
+  position: relative;
+  /* overflow: hidden;  À retirer pour éviter les coupures */
+}
+
+
+/* ===== Header ===== */
+
+
+header {
+  position: sticky; /* header toujours visible au-dessus de l'image */
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* toujours au-dessus */
+}
+
+header h1 a {
+  font-family: 'Roboto', sans-serif; /* Roboto */
+  font-size: 25px;
+  color: #000000;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: -1px;
+  cursor: pointer;
+  z-index: 10;
+  font-weight: 300; /* plus fin */
+}
+
+/* ===== Menu minimaliste ===== */
+nav {
+  position: fixed; /* menu fixe au-dessus de l'image */
+  top: 80px;
+  display: flex;
+  gap: 20px;
+  font-weight: 200;
+  z-index: 10; /* toujours au-dessus */
+}
+
+nav a {
+  font-family: 'Roboto', sans-serif; /* Roboto */
+  font-size: 12px;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300; /* plus fin */
+}
+
+
+p {
+  font-family: 'Roboto', sans-serif; /* Roboto */
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300; /* plus fin */
+}
+
+
+ul li {
+  font-family: 'Roboto', sans-serif; /* Roboto */
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300; /* plus fin */
+}
+
+nav a:hover {
+  color: #555;
+}
+/* ===== Image centrée et apparition avec délai ===== */
+.main-image {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  transition: opacity 1s ease-in-out, transform 0.3s;
+  opacity: 0; /* invisible au départ */
+  pointer-events: none; /* empêche l'image de bouger au clic */
+  position: relative; /* juste pour que z-index fonctionne si besoin */
+  z-index: 1; /* en dessous du menu et header */
+}
+
+.main-image.visible {
+  opacity: 1;
+}
+
+.main-image:hover {
+  transform: scale(1.05);
+}
+
+body.no-image main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* contenu en haut */
+    align-items: center;         /* centré horizontalement */
+
+    padding: 2rem 1rem;
+    margin-top: 120px; /* espace sous le header + menu fixe */
+}
+
+ .text-box {
+  max-width: 500px;
+  padding: 20px 30px;
+  background: white;
+  border: 1px solid #4f4d4d;
+  text-align: justify;
+}
+
+body.has-image main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* contenu en haut */
+    align-items: center;         /* centré horizontalement */
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 10px; /* espace sous le header + menu fixe */
+}
+.slide {
+  text-align: center; /* centre le texte sous l’image */
+}
+
+
+
+.slide-caption {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+
+
+.bio-section {
+    margin-top: 1rem; /* Ajoute un espacement entre les sections */
+}
+
+@media(max-width: 600px){
+  header h1 a {
+    font-size: 36px;
+  }
+  nav {
+    top: 80px;
+    gap: 15px;
+  }
+  .main-image {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+@media(max-width: 600px){
+  .slider-btn {
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+}
+
+/* ===== Slider ===== */
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 500px; /* taille fixe du slider */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  align-items: center; /* centre verticalement le contenu */
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.slide {
+  flex: 0 0 100%; /* UNE image par slide */
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* centre horizontalement */
+  align-items: center;     /* centre verticalement */
+}
+
+.slide img {
+  max-width: 80%;  /* limite largeur */
+  max-height: 90%; /* limite hauteur */
+  object-fit: contain;
+  border-radius: 5px;
+   display: block;
+}
+
+
+/* ===== Boutons ===== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  color: rgb(64, 64, 64);
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.slider-btn.left { left: 10px; }
+.slider-btn.right { right: 10px; }
+
+.slider-btn:hover { background: rgba(255, 255, 255, 0); }
+

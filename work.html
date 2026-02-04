@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Work - Emma Wolff</title>
+  <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+
+  
+</head>
+<body class="has-image">
+
+
+<header>
+    <h1><a href="/index.html">EMMA WOLFF</a></h1>
+  <nav>
+  <a href="work.html">TRAVAUX</a>
+  <a href="exhibition.html">EXPOSITION</a>
+  <a href="about.html">A PROPOS</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+</header>
+
+<main>
+ 
+
+  <div class="slider-container">
+    <button class="slider-btn left">&#10094;</button>
+    <div class="slider-track">
+      
+      <div class="slide">
+        <img src="images/grandpa.jpg" alt="Work 1">
+
+     <div class="slide-caption">Texte pour l’image 1
+
+     </div>
+    </div>
+     
+      <div class="slide"><img src="images/tandem.jpg" alt="Work 2"></div>
+      <div class="slide"><img src="images/work3.jpg" alt="Work 3"></div>
+    </div>
+    <button class="slider-btn right">&#10095;</button>
+  </div>
+
+  
+</main>
+
+
+
+<footer>
+  <p>&copy; 2026 Emma Wolff</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+
+  // Fade in au chargement
+  requestAnimationFrame(() => { body.style.opacity = 1; });
+
+  // Fade out sur clic de lien
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.startsWith("#") || href.startsWith("mailto:") || href === "") return;
+      e.preventDefault();
+      body.style.opacity = 0;
+      setTimeout(() => { window.location.href = href; }, 500);
+    });
+  });
+
+  // ===== Slider manuel =====
+  const track = document.querySelector('.slider-track');
+  if(track) {
+    const slides = Array.from(track.children);
+    const btnLeft = document.querySelector('.slider-btn.left');
+    const btnRight = document.querySelector('.slider-btn.right');
+    let currentIndex = 0;
+
+    function updateSlider() {
+      const width = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+    }
+
+    btnRight.addEventListener('click', () => {
+      if(currentIndex < slides.length - 1) currentIndex++;
+      else currentIndex = 0; // boucle
+      updateSlider();
+    });
+
+    btnLeft.addEventListener('click', () => {
+      if(currentIndex > 0) currentIndex--;
+      else currentIndex = slides.length - 1; // boucle
+      updateSlider();
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider(); // initialise correctement
+  }
+});
+
+</script>
+
+
+</body>
+</html>
