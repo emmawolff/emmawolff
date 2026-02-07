@@ -167,10 +167,70 @@ body.has-image main {
     max-width: 95%;
     max-height: 70vh;
   }
-@media(max-width: 600px){
+/* ===== Ajustements Mobile (Moins de 600px) ===== */
+@media (max-width: 600px) {
+  
+  /* On redonne de l'air au body */
+  body {
+    overflow-x: hidden; /* Évite le scroll horizontal parasite */
+  }
+
+  header {
+    position: relative; /* Moins risqué que sticky sur certains vieux mobiles */
+    top: 0;
+    padding-top: 20px;
+  }
+
+  header h1 a {
+    font-size: 28px; /* Un peu plus petit pour ne pas prendre toute la largeur */
+    letter-spacing: 2px;
+  }
+
+  nav {
+    position: relative; /* On le remet dans le flux normal */
+    top: 0;
+    margin-top: 15px;
+    gap: 12px; /* Espace réduit entre les liens pour qu'ils tiennent sur une ligne */
+    flex-wrap: wrap; /* Au cas où les noms sont longs, ils passent à la ligne proprement */
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  nav a {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* Ajustement de l'image pour qu'elle soit bien visible sans trop scroller */
+  .main-image {
+    max-width: 92%;
+    max-height: 60vh; /* Un peu plus court pour voir le footer */
+    margin-top: 30px;
+  }
+
+  /* Ajustement pour les pages de texte (A propos / Contact) */
+  body.no-image main {
+    margin-top: 40px;
+    padding: 1rem;
+  }
+
+  .text-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    border: none; /* On enlève la bordure sur mobile pour un look plus moderne */
+    text-align: left; /* Plus lisible sur petit écran */
+  }
+
+  /* Slider Mobile */
+  .slider-container {
+    height: 350px; /* On réduit la hauteur du slider sur mobile */
+    width: 100%;
+  }
+
   .slider-btn {
-    font-size: 20px;
-    padding: 8px;
+    font-size: 18px;
+    padding: 5px;
   }
 }
 }
