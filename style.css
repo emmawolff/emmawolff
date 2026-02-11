@@ -256,112 +256,125 @@ main {
 /* ==========================================================================
    5. FOOTER & MOBILE (CORRECTIF NOM ET ESPACEMENT)
    ========================================================================== */
-footer {
-    margin-left: var(--sidebar-width);
-    width: calc(100% - var(--sidebar-width));
-    padding: 60px 0;
-    text-align: center;
-    font-size: 10px;
-    color: #ccc;
-}
-
+/* ==========================================================================
+   5. MOBILE - VERSION ULTIME SÉCURISÉE
+   ========================================================================== */
 @media (max-width: 1024px) {
     header {
         width: 100%; 
-        height: 80px; /* Un peu plus haut pour le confort */
-        padding: 0 25px;
+        height: 70px;
+        padding: 0 20px;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-between; /* Nom à gauche, burger à droite */
         align-items: center;
         background: var(--bg-color);
-        z-index: 5000; /* Priorité maximale */
+        z-index: 9999; /* Priorité absolue sur tout le reste */
+        position: fixed;
+        top: 0;
+        left: 0;
     }
 
-    /* On s'assure que le titre reste au-dessus de tout */
     header h1 {
-        position: relative;
-        z-index: 5002; 
+        z-index: 10001; /* Toujours au-dessus du menu ouvert */
     }
 
     header h1 a {
-        font-size: 15px; /* Légèrement réduit pour mobile */
+        font-size: 14px;
         letter-spacing: 3px;
     }
 
     .burger-menu { 
-        display: block; 
-        position: relative;
-        z-index: 5002; /* Au-dessus du menu qui s'ouvre */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 10001; /* Toujours au-dessus du menu ouvert */
+        padding: 10px;
+        margin-right: -10px; /* Aligne visuellement le burger sur la droite */
     }
 
+    /* Le menu qui glisse */
     nav {
         position: fixed;
         top: 0; 
-        right: -100%; 
+        right: -100%;
         width: 100%; 
         height: 100vh;
-        background: var(--bg-color);
+        background: #ffffff; /* Fond blanc pur pour le menu mobile */
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centre verticalement les liens */
+        justify-content: center;
         align-items: center;
-        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        z-index: 5001; 
+        transition: 0.4s ease-in-out;
+        z-index: 10000;
     }
 
     nav.active { 
         right: 0 !important; 
     }
 
-    /* Espacements plus "galerie d'art" dans le menu mobile */
+    /* Liens du menu */
     .nav-links { 
         align-items: center; 
-        gap: 45px; /* Plus d'espace entre Travaux et À Propos */
+        gap: 35px;
+        text-align: center;
     }
 
     .nav-item-container {
         align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
 
     .nav-links a { 
         font-size: 16px; 
-        letter-spacing: 4px; 
-        color: #343434; /* Plus lisible en plein écran */
+        letter-spacing: 4px;
+        color: #000;
     }
 
-    /* Sous-menu mobile plus aéré */
+    /* Sous-menu (Huiles / Acryliques) */
     .sub-menu { 
         padding-left: 0; 
         align-items: center; 
-        gap: 12px;
+        gap: 15px;
         margin-top: 10px;
     }
 
     .sub-menu a {
         font-size: 11px !important;
         color: #888 !important;
-        letter-spacing: 2px;
+        text-transform: uppercase;
     }
 
+    /* Icônes Contact en bas du menu */
     .nav-contact {
-        margin-top: 60px; /* Écarte les icônes du texte */
-        padding-bottom: 0;
-        gap: 25px;
+        margin-top: 50px;
+        gap: 30px;
     }
-    
+
+    /* Contenu des pages (Main) */
     main { 
         margin-left: 0; 
         width: 100%; 
-        padding: 130px 20px 40px 20px; /* On descend le contenu pour ne pas toucher le nom */
+        padding: 100px 20px 40px 20px; /* Descend le contenu pour pas qu'il touche le nom */
+    }
+
+    /* Correction des images pour mobile */
+    .main-image {
+        max-width: 100% !important;
+        width: 100%;
+        height: auto;
     }
 
     .work-grid { 
-        gap: 70px; 
+        gap: 60px; 
+    }
+
+    .work-item {
+        max-width: 100%;
     }
 
     footer { 
         margin-left: 0; 
         width: 100%; 
+        padding: 40px 0;
     }
 }
