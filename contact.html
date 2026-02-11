@@ -6,28 +6,37 @@
   <link rel="stylesheet" href="style.css">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="no-image">
 
 
 <header>
-     
-    <h1><a href="index.html">EMMA WOLFF</a></h1>
-    
-<nav>
-  <a href="work.html">TRAVAUX</a>
-  <a href="exhibition.html">EXPOSITION</a>
-  <a href="about.html">A PROPOS</a>
-  <a href="contact.html">CONTACT</a>
-</nav>
+  <h1><a href="index.html">EMMA WOLFF</a></h1>
+  
+  <div class="burger-menu" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
+  <nav id="menu">
+    <a href="work.html">TRAVAUX</a>
+    <a href="about.html">A PROPOS</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
 </header>
 
-<main>
-   <div class="text-box">
-  <p><a href="mailto:emma.deka.wolff@gmail.com">emma.deka.wolff@gmail.com</a></p>
-  </div>
+<main class="contact-page">
+    <div class="contact-container">
+        
+        <div class="contact-links">
+            <a href="mailto:emma.deka.wolff@gmail.com" class="contact-item">Email</a>
+            <a href="https://www.instagram.com/emma_wolff_/" target="_blank" class="contact-item">Instagram</a>
+
+        </div>
+        <p class="contact-location">Basée à Paris, France</p>
+    </div>
 </main>
 
 <footer>
@@ -35,31 +44,57 @@
 </footer>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const body = document.body;
+    const body = document.body;
+    // CORRECTION DES ID ICI
+    const burger = document.getElementById('burger-menu'); 
+    const nav = document.getElementById('nav-menu');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const workImages = document.querySelectorAll('.work-image');
 
-  // Fade in au chargement
-  setTimeout(() => {
-    body.style.opacity = 1;
-  }, 10);
+    // 1. FADE IN DU BODY
+    requestAnimationFrame(() => { body.style.opacity = 1; });
 
-  // Fade out sur clic de lien
-  const links = document.querySelectorAll('a[href]');
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
+    // 2. LOGIQUE DU MENU BURGER (RÉPARÉE)
+    if (burger && nav) {
+        burger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // On bascule la classe active sur le burger ET sur le nav
+            burger.classList.toggle('active');
+            nav.classList.toggle('active');
+            console.log("Menu burger cliqué"); // Pour vérifier dans la console
+        });
+    }
 
-      // Ignorer les liens mailto et ancre #
-      if (href.startsWith("#") || href.startsWith("mailto:")) return;
-
-      e.preventDefault();
-      body.style.opacity = 0; // fade out
-      setTimeout(() => {
-        window.location.href = href; // changement de page après fade
-      }, 500); // durée correspond à celle du fade
+    // 3. LOGIQUE DE LA LIGHTBOX
+    workImages.forEach(image => {
+        image.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            body.style.overflow = 'hidden'; 
+        });
     });
-  });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        body.style.overflow = 'auto'; 
+    });
+
+    // 4. TRANSITIONS DE PAGES
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // On ne bloque pas les liens externes ou les ancres
+            if (!href || href.startsWith("#") || href.startsWith("mailto:") || this.target === "_blank") return;
+
+            e.preventDefault();
+            body.style.opacity = 0;
+            setTimeout(() => { window.location.href = href; }, 500);
+        });
+    });
 });
 </script>
-
 </body>
 </html>

@@ -1,74 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>About - Emma Wolff</title>
-  <link rel="stylesheet" href="style.css">
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Emma Wolff</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
 </head>
-<body class="no-image">
+<body>
 
+    <header>
+        <h1><a href="index.html">EMMA WOLFF</a></h1>
+        <nav id="nav-menu">
+            <div class="nav-links">
+                <div class="nav-item-container">
+                    <a href="work.html">TRAVAUX</a>
+                    <div class="sub-menu">
+                        <a href="work.html#huile">Huiles</a>
+                        <a href="work.html#acrylique">Acryliques</a>
+                    </div>
+                </div>
+                  <a href="about.html">A PROPOS</a>
+            </div>
 
-<header>
-    <h1><a href="index.html">EMMA WOLFF</a></h1>
- <nav>
-  <a href="work.html">TRAVAUX</a>
-  <a href="exhibition.html">EXPOSITION</a>
-  <a href="about.html">A PROPOS</a>
-  <a href="contact.html">CONTACT</a>
-</nav>
+            <div class="nav-contact">
+                <a href="mailto:contact@emmawolff.com" class="contact-draw">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/emmawolff" class="contact-draw">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </nav>
 
-</header>
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-<main>
-  <div class="text-box">
-  <section aria-labelledby="about-title" style="text-align:center; padding: 1rem 1rem;">
-  <p style="max-width: 520px; margin: 0 auto;">
-    Emma Wolff est une artiste visuelle spécialisée dans les arts plastiques et les médias numériques.
-    Son travail explore les rapports entre l’image et le récit, en interrogeant les notions de mémoire,
-    de perception et de temporalité.
-  </p>
-  
-</section>
+    <main>
+        <section class="about-container">
+            <div class="about-content">
+                <h2 class="about-title">À PROPOS</h2>
+                
+                <p class="lead-text">
+                    Emma Wolff est une artiste peintre dont le travail explore les frontières de l'intimité et les silences du quotidien. À travers une figuration sensible, elle capture des moments de suspension où le corps et l’esprit semblent se retirer du monde pour mieux se révéler.
+                </p>
 
-<!-- Optionnel: section Biographie rapide centrée (si tu veux garder le format) -->
-<section aria-labelledby="bio-details" class="bio-section" style="text-align:center; padding: 1rem 1rem;">
- 
-  <ul style="display:inline-block; text-align:left; list-style: none; padding: 0; margin: 0;">
-    <li>Formée en arts plastiques à [Nom de l’établissement], [année].</li>
-    <li>Ses œuvres ont été présentées à [lieux], [années].</li>
-    <li>Collaborations récentes avec [leurs partenaires].</li>
-  </ul>
-   </div>
-</section>
+                <div class="about-image-wrapper">
+                    <img src="tandem.jpg" alt="Détail de peinture Tandem" class="about-img-small">
+                    <span class="caption">Détail, Tandem (2024)</span>
+                </div>
 
+                <h3>La peinture comme miroir</h3>
+                <p>
+                    Sa démarche s'articule autour de la présence humaine et de sa vulnérabilité. Dans ses compositions, souvent marquées par des jeux de cadres et de reflets, les sujets sont saisis dans une introspection profonde. Ses œuvres interrogent la dualité et la résonance entre les êtres, transformant chaque toile en un espace de confidence.
+                </p>
 
-</main>
-<footer>
-  <p>&copy; 2026 Emma Wolff</p>
-</footer>
+                <h3>Matière et lumière</h3>
+                <p>
+                    Privilégiant une approche tactile, Emma Wolff travaille la peinture avec une épaisseur organique. Les visages et les corps ne sont pas simplement dessinés, ils sont modelés dans la matière. Cette recherche texturale est sublimée par un usage dramatique de la lumière : des ombres enveloppantes sont soudainement traversées par des éclats chromatiques vifs.
+                </p>
+
+                <h3>Entre l'intime et le décor</h3>
+                <p>
+                    L’environnement architectural et végétal occupe une place centrale dans son œuvre. Fenêtres, seuils et feuillages ne sont pas de simples décors, mais des prolongements des états d’âme de ses sujets. Ils agissent comme des filtres, invitant le spectateur à observer ces fragments de vie avec une pudeur respectueuse.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EMMA WOLFF — TOUS DROITS RÉSERVÉS</p>
+    </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const body = document.body;
-  body.style.opacity = 0;
-  setTimeout(() => {
-    body.style.opacity = 1;
-  }, 10);
+    const body = document.body;
+    // CORRECTION DES ID ICI
+    const burger = document.getElementById('burger-menu'); 
+    const nav = document.getElementById('nav-menu');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const workImages = document.querySelectorAll('.work-image');
 
-  const links = document.querySelectorAll('a[href]');
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href.startsWith("#") || href.startsWith("mailto:")) return;
-      e.preventDefault();
-      body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
+    // 1. FADE IN DU BODY
+    requestAnimationFrame(() => { body.style.opacity = 1; });
+
+    // 2. LOGIQUE DU MENU BURGER (RÉPARÉE)
+    if (burger && nav) {
+        burger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // On bascule la classe active sur le burger ET sur le nav
+            burger.classList.toggle('active');
+            nav.classList.toggle('active');
+            console.log("Menu burger cliqué"); // Pour vérifier dans la console
+        });
+    }
+
+    // 3. LOGIQUE DE LA LIGHTBOX
+    workImages.forEach(image => {
+        image.addEventListener('click', () => {
+            lightbox.classList.add('active');
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt;
+            body.style.overflow = 'hidden'; 
+        });
     });
-  });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        body.style.overflow = 'auto'; 
+    });
+
+    // 4. TRANSITIONS DE PAGES
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // On ne bloque pas les liens externes ou les ancres
+            if (!href || href.startsWith("#") || href.startsWith("mailto:") || this.target === "_blank") return;
+
+            e.preventDefault();
+            body.style.opacity = 0;
+            setTimeout(() => { window.location.href = href; }, 500);
+        });
+    });
 });
 </script>
+
+</body>
+</html>

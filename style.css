@@ -1,293 +1,367 @@
-/* ===== Reset et base ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==========================================================================
+   1. BASICS & LAYOUT
+   ========================================================================== */
+:root {
+    --sidebar-width: 250px;
+    --bg-color: #fcfcfc;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
-  font-family: 'roboto', sans-serif; 
-  min-height: 100vh;
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; /* contenu en haut */ 
-  align-items: center; /* centré horizontalement */ 
-  background-color: #fff; 
-  transition: opacity 0.5s ease-in-out; 
-  position: relative;
-  /* overflow: hidden;  À retirer pour éviter les coupures */
+    font-family: 'Roboto', sans-serif; 
+    background-color: var(--bg-color); 
+    color: #000;
+    min-height: 100vh;
 }
 
+body.has-image:not(:has(.work-grid)) {
+    height: 100vh;
+    overflow: hidden;
+}
 
-/* ===== Header ===== */
-
-
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
 header {
-  position: sticky; /* header toujours visible au-dessus de l'image */
-  top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10; /* toujours au-dessus */
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 60px 40px;
+    z-index: 2000;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
 }
 
 header h1 a {
-  font-family: 'Roboto', sans-serif; /* Roboto */
-  font-size: 25px;
-  color: #000000;
-  text-decoration: none;
-  display: inline-block;
-  letter-spacing: -1px;
-  cursor: pointer;
-  z-index: 10;
-  font-weight: 300; /* plus fin */
-}
-
-/* ===== Menu minimaliste ===== */
-nav {
-  position: fixed; /* menu fixe au-dessus de l'image */
-  top: 80px;
-  display: flex;
-  gap: 20px;
-  font-weight: 200;
-  z-index: 10; /* toujours au-dessus */
-}
-
-nav a {
-  font-family: 'Roboto', sans-serif; /* Roboto */
-  font-size: 12px;
-  color: #111;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: 300; /* plus fin */
-}
-
-
-p {
-  font-family: 'Roboto', sans-serif; /* Roboto */
-  font-size: 13px;
-  color: #111;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: 300; /* plus fin */
-}
-
-
-ul li {
-  font-family: 'Roboto', sans-serif; /* Roboto */
-  font-size: 13px;
-  color: #111;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: 300; /* plus fin */
-}
-
-nav a:hover {
-  color: #555;
-}
-/* ===== Image centrée et apparition avec délai ===== */
-.main-image {
-  max-width: 90%;
-  max-height: 80vh;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-  transition: opacity 1s ease-in-out, transform 0.3s;
-  opacity: 0; /* invisible au départ */
-  pointer-events: none; /* empêche l'image de bouger au clic */
-  position: relative; /* juste pour que z-index fonctionne si besoin */
-  z-index: 1; /* en dessous du menu et header */
-}
-
-.main-image.visible {
-  opacity: 1;
-}
-
-.main-image:hover {
-  transform: scale(1.05);
-}
-
-body.no-image main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* contenu en haut */
-    align-items: center;         /* centré horizontalement */
-
-    padding: 2rem 1rem;
-    margin-top: 120px; /* espace sous le header + menu fixe */
-}
-
- .text-box {
-  max-width: 500px;
-  padding: 20px 30px;
-  background: white;
-  border: 1px solid #4f4d4d;
-  text-align: justify;
-}
-
-body.has-image main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* contenu en haut */
-    align-items: center;         /* centré horizontalement */
-    text-align: center;
-    padding: 2rem 1rem;
-    margin-top: 10px; /* espace sous le header + menu fixe */
-}
-.slide {
-  text-align: center; /* centre le texte sous l’image */
-}
-
-
-
-.slide-caption {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-
-
-.bio-section {
-    margin-top: 1rem; /* Ajoute un espacement entre les sections */
-}
-
-@media(max-width: 600px){
-  header h1 a {
-    font-size: 36px;
-  }
-  nav {
-    top: 80px;
-    gap: 15px;
-  }
-  .main-image {
-    max-width: 95%;
-    max-height: 70vh;
-  }
-/* ===== Ajustements Mobile (Moins de 600px) ===== */
-@media (max-width: 600px) {
-  
-  /* On redonne de l'air au body */
-  body {
-    overflow-x: hidden; /* Évite le scroll horizontal parasite */
-  }
-
-  header {
-    position: relative; /* Moins risqué que sticky sur certains vieux mobiles */
-    top: 0;
-    padding-top: 20px;
-  }
-
-  header h1 a {
-    font-size: 28px; /* Un peu plus petit pour ne pas prendre toute la largeur */
-    letter-spacing: 2px;
-  }
-
-  nav {
-    position: relative; /* On le remet dans le flux normal */
-    top: 0;
-    margin-top: 15px;
-    gap: 12px; /* Espace réduit entre les liens pour qu'ils tiennent sur une ligne */
-    flex-wrap: wrap; /* Au cas où les noms sont longs, ils passent à la ligne proprement */
-    justify-content: center;
-    padding: 0 10px;
-  }
-
-  nav a {
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-
-  /* Ajustement de l'image pour qu'elle soit bien visible sans trop scroller */
-  .main-image {
-    max-width: 92%;
-    max-height: 60vh; /* Un peu plus court pour voir le footer */
-    margin-top: 30px;
-  }
-
-  /* Ajustement pour les pages de texte (A propos / Contact) */
-  body.no-image main {
-    margin-top: 40px;
-    padding: 1rem;
-  }
-
-  .text-box {
-    width: 100%;
-    max-width: 100%;
-    padding: 15px;
-    border: none; /* On enlève la bordure sur mobile pour un look plus moderne */
-    text-align: left; /* Plus lisible sur petit écran */
-  }
-
-  /* Slider Mobile */
-  .slider-container {
-    height: 350px; /* On réduit la hauteur du slider sur mobile */
-    width: 100%;
-  }
-
-  .slider-btn {
     font-size: 18px;
-    padding: 5px;
-  }
-}
-}
-
-/* ===== Slider ===== */
-.slider-container {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  height: 500px; /* taille fixe du slider */
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 5px;
-  display: flex;
-  align-items: center; /* centre verticalement le contenu */
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 
-.slider-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  height: 100%;
+nav { 
+    margin-top: 40px; 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
 }
 
-.slide {
-  flex: 0 0 100%; /* UNE image par slide */
-  display: flex;
-  justify-content: center;
-  flex-direction: column; /* centre horizontalement */
-  align-items: center;     /* centre verticalement */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.slide img {
-  max-width: 80%;  /* limite largeur */
-  max-height: 90%; /* limite hauteur */
-  object-fit: contain;
-  border-radius: 5px;
-   display: block;
+.nav-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-
-/* ===== Boutons ===== */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  color: rgb(64, 64, 64);
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
+.sub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 10px;
 }
 
-.slider-btn.left { left: 10px; }
-.slider-btn.right { right: 10px; }
+.nav-links a {
+    font-size: 12px;
+    color: #838383;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
 
-.slider-btn:hover { background: rgba(255, 255, 255, 0); }
+.sub-menu a {
+    font-size: 9px !important;
+    color: #bbb !important;
+}
 
+.nav-links a:hover, .sub-menu a:hover { color: #000 !important; }
+
+.nav-contact {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.contact-draw {
+    width: 18px;
+    height: 18px;
+    color: #666666;
+    transition: 0.3s;
+    display: block;
+}
+
+.contact-draw svg {
+    width: 100%; height: 100%;
+    stroke: currentColor;
+    fill: none;
+}
+
+.contact-draw:hover { color: #000; transform: translateY(-2px); }
+
+/* BURGER MENU VISIBILITY */
+.burger-menu { 
+    display: none; 
+    cursor: pointer;
+    z-index: 5001; /* Doit être au-dessus du nav ouvert */
+}
+
+.burger-menu span { 
+    width: 25px; 
+    height: 2px; 
+    background: #000; 
+    margin: 5px 0; 
+    display: block; 
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   3. CONTENU PRINCIPAL & PAGES
+   ========================================================================= */
+main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width)); 
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh;
+}
+
+/* CORRECTIF IMAGE INDEX (ACCUEIL) */
+.main-image {
+    max-width: 450px !important; 
+    max-height: 70vh;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Page Travaux */
+.work-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px; 
+    width: 100%;
+}
+
+.work-item { 
+    width: 100%; 
+    max-width: 900px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.work-image { 
+    width: 100%; 
+    height: auto; 
+    max-height: 85vh; 
+    object-fit: contain; 
+    cursor: zoom-in;
+    transition: opacity 0.3s;
+}
+
+.work-image:hover { opacity: 0.85; }
+.work-info { margin-top: 30px; text-align: center; }
+
+/* Page À Propos */
+.about-container {
+    max-width: 650px;
+    width: 100%;
+    text-align: left;
+}
+
+.about-title {
+    font-weight: 300;
+    letter-spacing: 10px;
+    margin-bottom: 50px;
+    font-size: 22px;
+}
+
+.lead-text {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.about-content h3 {
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 45px 0 15px 0;
+}
+
+.about-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.about-image-wrapper { margin: 50px 0; text-align: center; }
+.about-img-small { width: 100%; height: auto; margin-bottom: 10px; }
+.caption { font-size: 10px; color: #999; letter-spacing: 1px; }
+
+/* ==========================================================================
+   4. LIGHTBOX
+   ========================================================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 6000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.98); 
+    cursor: zoom-out;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active { display: flex; }
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.08);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px; right: 40px;
+    color: #000;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 200;
+}
+
+/* ==========================================================================
+   5. FOOTER & MOBILE
+   ========================================================================== */
+/* ==========================================================================
+   5. FOOTER & MOBILE (CORRECTIF NOM ET ESPACEMENT)
+   ========================================================================== */
+footer {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 60px 0;
+    text-align: center;
+    font-size: 10px;
+    color: #ccc;
+}
+
+@media (max-width: 1024px) {
+    header {
+        width: 100%; 
+        height: 80px; /* Un peu plus haut pour le confort */
+        padding: 0 25px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg-color);
+        z-index: 5000; /* Priorité maximale */
+    }
+
+    /* On s'assure que le titre reste au-dessus de tout */
+    header h1 {
+        position: relative;
+        z-index: 5002; 
+    }
+
+    header h1 a {
+        font-size: 15px; /* Légèrement réduit pour mobile */
+        letter-spacing: 3px;
+    }
+
+    .burger-menu { 
+        display: block; 
+        position: relative;
+        z-index: 5002; /* Au-dessus du menu qui s'ouvre */
+    }
+
+    nav {
+        position: fixed;
+        top: 0; 
+        right: -100%; 
+        width: 100%; 
+        height: 100vh;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centre verticalement les liens */
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 5001; 
+    }
+
+    nav.active { 
+        right: 0 !important; 
+    }
+
+    /* Espacements plus "galerie d'art" dans le menu mobile */
+    .nav-links { 
+        align-items: center; 
+        gap: 45px; /* Plus d'espace entre Travaux et À Propos */
+    }
+
+    .nav-item-container {
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-links a { 
+        font-size: 16px; 
+        letter-spacing: 4px; 
+        color: #343434; /* Plus lisible en plein écran */
+    }
+
+    /* Sous-menu mobile plus aéré */
+    .sub-menu { 
+        padding-left: 0; 
+        align-items: center; 
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .sub-menu a {
+        font-size: 11px !important;
+        color: #888 !important;
+        letter-spacing: 2px;
+    }
+
+    .nav-contact {
+        margin-top: 60px; /* Écarte les icônes du texte */
+        padding-bottom: 0;
+        gap: 25px;
+    }
+    
+    main { 
+        margin-left: 0; 
+        width: 100%; 
+        padding: 130px 20px 40px 20px; /* On descend le contenu pour ne pas toucher le nom */
+    }
+
+    .work-grid { 
+        gap: 70px; 
+    }
+
+    footer { 
+        margin-left: 0; 
+        width: 100%; 
+    }
+}
