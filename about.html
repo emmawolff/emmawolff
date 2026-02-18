@@ -1,87 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | Emma Wolff</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Contact - Emma Wolff</title>
+  <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="no-image">
 
-    <header>
-        <h1><a href="index.html">EMMA WOLFF</a></h1>
-        <nav id="nav-menu">
-            <div class="nav-links">
-                <div class="nav-item-container">
-                    <a href="work.html">TRAVAUX</a>
-                    <div class="sub-menu">
-                        <a href="work.html#huile">Huiles</a>
-                        <a href="work.html#acrylique">Acryliques</a>
-                    </div>
-                </div>
-                  <a href="about.html">A PROPOS</a>
-            </div>
 
-            <div class="nav-contact">
-                <a href="mailto:contact@emmawolff.com" class="contact-draw">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                </a>
-                <a href="https://instagram.com/emmawolff" class="contact-draw">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-            </div>
-        </nav>
+<header>
+  <h1><a href="index.html">EMMA WOLFF</a></h1>
+  
+  <div class="burger-menu" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-        <div class="burger-menu" id="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+  <nav id="menu">
+    <a href="work.html">TRAVAUX</a>
+    <a href="about.html">A PROPOS</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+</header>
+
+<main class="contact-page">
+    <div class="contact-container">
+        
+        <div class="contact-links">
+            <a href="mailto:emma.deka.wolff@gmail.com" class="contact-item">Email</a>
+            <a href="https://www.instagram.com/emma_wolff_/" target="_blank" class="contact-item">Instagram</a>
+
         </div>
-    </header>
+        <p class="contact-location">Basée à Paris, France</p>
+    </div>
+</main>
 
-    <main>
-        <section class="about-container">
-            <div class="about-content">
-                <h2 class="about-title">À PROPOS</h2>
-                
-                <p class="lead-text">
-                    Emma Wolff est une artiste peintre dont le travail explore les frontières de l'intimité et les silences du quotidien. À travers une figuration sensible, elle capture des moments de suspension où le corps et l’esprit semblent se retirer du monde pour mieux se révéler.
-                </p>
-
-                <div class="about-image-wrapper">
-                    <img src="tandem.jpg" alt="Détail de peinture Tandem" class="about-img-small">
-                    <span class="caption">Détail, Tandem (2024)</span>
-                </div>
-
-                <h3>La peinture comme miroir</h3>
-                <p>
-                    Sa démarche s'articule autour de la présence humaine et de sa vulnérabilité. Dans ses compositions, souvent marquées par des jeux de cadres et de reflets, les sujets sont saisis dans une introspection profonde. Ses œuvres interrogent la dualité et la résonance entre les êtres, transformant chaque toile en un espace de confidence.
-                </p>
-
-                <h3>Matière et lumière</h3>
-                <p>
-                    Privilégiant une approche tactile, Emma Wolff travaille la peinture avec une épaisseur organique. Les visages et les corps ne sont pas simplement dessinés, ils sont modelés dans la matière. Cette recherche texturale est sublimée par un usage dramatique de la lumière : des ombres enveloppantes sont soudainement traversées par des éclats chromatiques vifs.
-                </p>
-
-                <h3>Entre l'intime et le décor</h3>
-                <p>
-                    L’environnement architectural et végétal occupe une place centrale dans son œuvre. Fenêtres, seuils et feuillages ne sont pas de simples décors, mais des prolongements des états d’âme de ses sujets. Ils agissent comme des filtres, invitant le spectateur à observer ces fragments de vie avec une pudeur respectueuse.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 EMMA WOLFF — TOUS DROITS RÉSERVÉS</p>
-    </footer>
-
+<footer>
+  <p>&copy; 2026 Emma Wolff</p>
+</footer>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const body = document.body;
@@ -136,6 +96,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-
 </body>
 </html>
