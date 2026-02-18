@@ -141,11 +141,19 @@ main {
 
 /* CORRECTIF IMAGE INDEX (ACCUEIL) */
 .main-image {
-    max-width: 450px !important; 
-    max-height: 70vh;
-    width: 90%;
-    height: auto;
-    object-fit: contain;
+/* 1. On annule les bridages */
+    max-width: 100% !important; 
+    
+    /* 2. LARGEUR : On prend toute la largeur du <main> */
+    width: 100%;
+    
+    /* 3. HAUTEUR : On calcule pour que ça ne dépasse JAMAIS l'écran */
+    /* On soustrait le padding haut et bas du <main> (80px + 80px = 160px) */
+    height: calc(100vh - 160px); 
+    
+    /* 4. ADAPTATION : L'image se redimensionne sans déborder */
+    object-fit: contain; 
+    
     display: block;
     margin: 0 auto;
 }
